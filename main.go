@@ -25,10 +25,11 @@ func main() {
 		panic("❌ No se pudo conectar a la base de datos")
 	}
 
-	db.AutoMigrate(&models.Todo{})
+	db.AutoMigrate(&models.User{}, &models.Todo{})
 
 	r := gin.Default()
 
+	routes.RegisterAuthRoutes(r, db)
 	routes.RegisterTodoRoutes(r, db)
 
 	r.Run(":8080")
