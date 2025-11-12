@@ -7,4 +7,5 @@ type Todo struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	Completed   bool   `json:"completed" gorm:"default:false"`
+	UserID      uint   `json:"user_id"`
 }
